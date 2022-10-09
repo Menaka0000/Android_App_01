@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {Alert, StyleSheet, View} from 'react-native';
 import AppTextInput from '../components/AppTextInput';
 import AppButton from '../components/AppButton';
 import UserServices from '../../services/UserServices';
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
@@ -20,7 +20,7 @@ export default function LoginScreen() {
             else if(res.status===404)Alert.alert("NOT FOUND",resMessage)
             else {
                 //with the 200 code, the api will return a json object that includes all the user details without the password
-                Alert.alert('',"Logged In successfully.")
+                navigation.navigate('Account',resMessage);
             }
         } catch (err) {
             console.log(err);
@@ -44,11 +44,12 @@ export default function LoginScreen() {
                         setPassword(text);
                     }}
                 />
-                <AppButton title="login" onPress={userLogin}/>
+                <AppButton title="login" fontSize={18} height={50} onPress={userLogin}/>
             </View>
         </View>
     );
 }
+
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,

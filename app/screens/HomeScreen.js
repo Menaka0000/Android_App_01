@@ -11,8 +11,8 @@ export default function HomeScreen({ navigation }) {
                 <Image style={styles.background} source={require("../assets/Home_03.png")}></Image>
             </View>
             <View style={styles.buttonsContainer}>
-                <AppButton title="Login" onPress={()=>{navigation.navigate('Login')}}/>
-                <AppButton title="Register" onPress={()=>{navigation.navigate('Sign Up')}}/>
+                <AppButton title="Login" fontSize={18} height={50} onPress={()=>{navigation.navigate('Login')}}/>
+                <AppButton title="Register" fontSize={18} height={50} onPress={()=>{navigation.navigate('Sign Up')}}/>
             </View>
         </Screen>
     );

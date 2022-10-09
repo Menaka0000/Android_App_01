@@ -1,4 +1,3 @@
-import baseURL from '../app/config/urlConfig';
 import urlConfig from '../app/config/urlConfig';
 
 class UserServices {
